@@ -11,7 +11,7 @@ WARNING: This language is currently unstable. No guarantees regarding the functi
 
 ## Usage
 
-### Run Plop file
+### Run Plop File
 
 ```bash
 $ ./plop.py <input-file>
@@ -19,7 +19,7 @@ $ ./plop.py <input-file>
 
 ## Testing
 
-### Run test suite
+### Run Test Suite
 
 ```bash
 $ ./run_tests.py
@@ -27,13 +27,13 @@ $ ./run_tests.py
 
 ## Examples
 
-### Hello world
+### Hello World
 
 ```py
 "Hello, world!" println
 ```
 
-### Count to ten
+### Count to Ten
 
 ```py
 0 dup 10 = not while {
@@ -43,7 +43,7 @@ $ ./run_tests.py
 }
 ```
 
-### Say hello
+### Say Hello
 
 ```py
 proc say-hello {
@@ -111,7 +111,7 @@ true false and
 
 TODO...
 
-### Control flow
+### Control Flow
 
 TODO...
 

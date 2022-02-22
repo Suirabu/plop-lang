@@ -1,0 +1,23 @@
+100 const n
+
+0 dup n = not while {
+    1 +
+
+    dup print
+
+    dup 15 % 0 = if {
+        "\tFizzBuzz!" println
+    } else {
+        dup 5 % 0 = if {
+            "\tBuzz!" println
+        } else {
+            dup 3 % 0 = if {
+                "\tFizz!" println
+            } else {
+                "" println
+            }
+        }
+    }
+    
+    dup n = not
+}

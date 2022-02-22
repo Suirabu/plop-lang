@@ -341,8 +341,8 @@ def evaluate_expression(expr: Expr):
         data_stack.append(constants[lxm])
     # Procedures
     elif lxm in procedures.keys():
-        report_source_error(expr.line, "Calling procedured has not been implemented yet")
-        exit(1)
+        for ex in procedures[lxm]:
+            evaluate_expression(ex)
 
     # Report error
     else:

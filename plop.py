@@ -93,12 +93,14 @@ class Expr:
     lexemme = ""
     line = 0
     sub_expr = None
+    alt_sub_expr = None
     value = None
- 
-    def __init__(self, lxm, ln, sbexpr=None, val=None):
+
+    def __init__(self, lxm, ln, sbexpr=None, altsbexpr=None, val=None):
         self.lexemme = lxm
         self.line = ln
         self.sub_expr = sbexpr
+        self.alt_sub_expr = altsbexpr
         self.value = val
 
 # Parse tokens
@@ -151,7 +153,7 @@ def collect_expressions():
                 names.append(name)
                 exprs.append(Expr(lxm, ln, val=name))
             
-            # if, else, while
+            # if, while
             else:
                 expr = Expr(lxm, ln)
 
@@ -167,12 +169,12 @@ def collect_expressions():
                     expr.value = name
                     names.append(name)
 
-                # report errors rather than tripping assertions
+                # TODO: report errors rather than tripping assertions
                 assert tokens.pop().lexemme == '{'
                 subexprs = collect_expressions()
                 expr.sub_expr = subexprs
                 exprs.append(expr)
-                # Report 'Mismatched open bracket' as error
+                # TODO: Report 'Mismatched open bracket' as error
                 assert tokens.pop().lexemme == '}'
 
         elif lxm in STANDALONE_KEYWORDS:

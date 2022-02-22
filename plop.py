@@ -65,7 +65,7 @@ for ln, content in enumerate(file_contents.splitlines()):
 STANDALONE_KEYWORDS = [
     "drop", "dup", "swap", "rot", "over",
     "+", "-", "*", "/", "%", "=",
-    "not", "and", "or", "xor",
+    "not", "and", "or",
     "exit", "print", "println", "read",
 ]
 

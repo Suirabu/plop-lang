@@ -193,7 +193,10 @@ def collect_expressions():
         elif lxm in STANDALONE_KEYWORDS:
             exprs.append(Expr(lxm, ln))
 
-        elif not lxm in names:
+        elif lxm in names:
+            exprs.append(Expr(lxm, ln))
+
+        else:
             report_source_error(ln, f"Unknown word '{lxm}'")
             exit(1)
 
@@ -323,12 +326,24 @@ def evaluate_expression(expr: Expr):
     elif lxm == "else":
         report_error("Loose else expression made it past parsing...")
         exit(1)
-
     # While
     elif lxm == "while":
         while data_stack.pop():
             for ex in expr.sub_expr:
                 evaluate_expression(ex)
+    
+    # Variables
+    elif lxm in variables.keys():
+        report_source_error(expr.line, "Variables have not been implemented yet")
+        exit(1)
+    # Constants
+    elif lxm in constants.keys():
+        data_stack.append(constants[lxm])
+    # Procedures
+    elif lxm in procedures.keys():
+        report_source_error(expr.line, "Calling procedured has not been implemented yet")
+        exit(1)
+
     # Report error
     else:
         report_source_error(expr.line, f"Unknown word '{lxm}'")

@@ -1,0 +1,5 @@
+0 dup 10 = not while {
+    1 +
+    dup println
+    dup 10 = not
+}

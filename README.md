@@ -29,13 +29,21 @@ $ ./run_tests.py
 
 ### Hello world
 
+<<<<<<< HEAD
 ```py
+=======
+```gds
+>>>>>>> 83a46492c5f6c1e202d302e8feb38a83470ac337
 "Hello, world!" println
 ```
 
 ### Count to ten
 
+<<<<<<< HEAD
 ```py
+=======
+```gds
+>>>>>>> 83a46492c5f6c1e202d302e8feb38a83470ac337
 0 dup 10 = not while {
     1 +
     dup println
@@ -45,7 +53,11 @@ $ ./run_tests.py
 
 ### Say hello
 
+<<<<<<< HEAD
 ```py
+=======
+```gds
+>>>>>>> 83a46492c5f6c1e202d302e8feb38a83470ac337
 proc say-hello {
     "Hello, " print
     print
@@ -72,7 +84,11 @@ Integer literals are words that consist only of decimal digits (0..9). When
 encountered, integer literals will be pushed to the top of the data-stack for
 later use.
 
+<<<<<<< HEAD
 ```py
+=======
+```gds
+>>>>>>> 83a46492c5f6c1e202d302e8feb38a83470ac337
 # Push the numbers 10 and 5 onto the data stack, then add them together. 
 10 5 +
 ```
@@ -90,7 +106,11 @@ currently supported:
 - `\r` - carriage return
 - `\t` - tab
 
+<<<<<<< HEAD
 ```py
+=======
+```gds
+>>>>>>> 83a46492c5f6c1e202d302e8feb38a83470ac337
 # Push the string "Hello, world!" onto the data stack, then print it.
 "Hello, world!" println
 ```
@@ -101,7 +121,11 @@ Boolean literals can be pushed onto the data-stack my means of using one of two
 words: `true` or `false`. When these words are encountered, their respective
 boolean values are pushed to the top of the data stack.
 
+<<<<<<< HEAD
 ```py
+=======
+```gds
+>>>>>>> 83a46492c5f6c1e202d302e8feb38a83470ac337
 # Push the boolean values `true` and `false` to the data stack, then perform a
 # logical and operation on them
 true false and

@@ -155,6 +155,10 @@ def collect_expressions():
             
             # if, while
             else:
+                # TODO: This should really be handled somewhere else...
+                if lxm == "else":
+                    report_source_error(ln, "Else expressions MUST follow if expressions")
+
                 expr = Expr(lxm, ln)
 
                 if lxm == "proc":
@@ -173,9 +177,18 @@ def collect_expressions():
                 assert tokens.pop().lexemme == '{'
                 subexprs = collect_expressions()
                 expr.sub_expr = subexprs
-                exprs.append(expr)
                 # TODO: Report 'Mismatched open bracket' as error
                 assert tokens.pop().lexemme == '}'
+                
+                if lxm == "if" and len(tokens) != 0 and tokens[-1].lexemme == "else":
+                    tokens.pop()
+                    assert tokens.pop().lexemme == '{'
+                    subexprs = collect_expressions()
+                    expr.alt_sub_expr = subexprs
+                    # TODO: Report 'Mismatched open bracket' as error
+                    assert tokens.pop().lexemme == '}'
+                
+                exprs.append(expr)
 
         elif lxm in STANDALONE_KEYWORDS:
             exprs.append(Expr(lxm, ln))
@@ -303,12 +316,12 @@ def evaluate_expression(expr: Expr):
         if cond:
             for ex in expr.sub_expr:
                 evaluate_expression(ex)
-        else:
-            report_error("Else expressions have not yet been implemented")
-            exit(1)
+        elif expr.alt_sub_expr != None:
+            for ex in expr.alt_sub_expr:
+                evaluate_expression(ex)
     # Else
     elif lxm == "else":
-        report_error("Else expressions have not yet been implemented")
+        report_error("Loose else expression made it past parsing...")
         exit(1)
 
     # While

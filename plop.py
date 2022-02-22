@@ -66,7 +66,7 @@ STANDALONE_KEYWORDS = [
     "drop", "dup", "swap", "rot", "over",
     "+", "-", "*", "/", "%", "=",
     "not", "and", "or", "xor",
-    "exit", "print", "println",
+    "exit", "print", "println", "read",
 ]
 
 # Keywords that DO take in sub-expressions
@@ -302,6 +302,9 @@ def evaluate_expression(expr: Expr):
     # Println
     elif lxm == "println":
         print(data_stack.pop())
+    # Read
+    elif lxm == "read":
+        data_stack.append(input(""))
 
     # Var
     elif lxm == "var":

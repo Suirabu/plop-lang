@@ -1,0 +1,18 @@
+"10 5 drop" println
+10 5 drop println
+"" println
+
+"5 dup" println
+5 dup println println
+"" println
+
+"10 5 swap" println
+10 5 swap println println
+"" println
+
+"3 6 9 rot" println
+3 6 9 rot println println println
+"" println
+
+"5 10 over" println
+5 10 over println println println

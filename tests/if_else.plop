@@ -1,0 +1,11 @@
+true if {
+    "Correct" println
+} else {
+    1 exit
+}
+
+false if {
+    1 exit
+} else {
+    "Correct" println
+}

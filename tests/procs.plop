@@ -1,0 +1,14 @@
+proc say-hello {
+    "Hello, " print
+}
+
+proc say-world {
+    "world!" println
+}
+
+proc say-again {
+    "again!" println
+}
+
+say-hello say-world
+say-hello say-again

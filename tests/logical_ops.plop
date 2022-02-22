@@ -1,0 +1,27 @@
+# Test 'not' operator
+true not 
+if { 1 exit }
+
+false not
+not if { 1 exit }
+
+# Test 'and' operator
+true false and
+if { 1 exit }
+
+true true and
+not if { 1 exit }
+
+false false and
+if { 1 exit }
+
+
+# Test 'or' operator
+true false or
+not if { 1 exit }
+
+true true or
+not if { 1 exit }
+
+false false or
+if { 1 exit }

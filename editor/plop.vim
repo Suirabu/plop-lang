@@ -18,7 +18,7 @@ endif
 syn keyword plopTodo TODO
 syn match plopComment "#.*$" contains=plopTodo
 syn match plopEscapes display contained "\\[nrt]"
-syn region plopString start='"' end='"' contains=porthEscapes
+syn region plopString start='"' end='"' contains=plopEscapes
 syn keyword plopKeyword exit print println read var const if else while proc
 syn match plopNumber "\d+"
 
